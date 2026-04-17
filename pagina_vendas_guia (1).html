@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Prático de Verbas Rescisórias — Verbas & Direitos na Prática</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A3A5C;--navy-dark:#0F2540;--navy-mid:#162F4E;--gold:#C9A84C;--gold-light:#E8C870;--white:#FFFFFF;--muted:#8A9BB5;--green:#2D7A4F;--green-bg:#EBF6F0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;background:var(--navy-dark);color:var(--white);line-height:1.6;}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px 80px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;border:1px solid rgba(201,168,76,0.08);}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,168,76,0.06);}
+.brand-bar{display:flex;align-items:center;gap:12px;margin-bottom:40px;position:relative;z-index:1;}
+.brand-mark{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);}
+.brand-name{font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+.hero-eyebrow{display:inline-block;margin-bottom:20px;padding:5px 16px;border-radius:20px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);position:relative;z-index:1;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:20px;position:relative;z-index:1;max-width:760px;}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);font-weight:300;max-width:540px;margin:0 auto 36px;line-height:1.7;position:relative;z-index:1;}
+.hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:1;}
+.btn-primary{display:inline-block;padding:18px 48px;background:var(--gold);color:var(--navy-dark);font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;text-decoration:none;transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-secondary{display:inline-block;padding:14px 36px;background:transparent;color:var(--muted);font-family:'Source Sans 3',sans-serif;font-size:13px;border:1px solid rgba(255,255,255,0.1);border-radius:6px;text-decoration:none;transition:all 0.2s;cursor:pointer;}
+.btn-secondary:hover{border-color:rgba(201,168,76,0.3);color:var(--gold-light);}
+.price-note{font-size:13px;color:var(--muted);}
+.price-note strong{color:var(--gold);font-size:22px;font-weight:700;}
+
+section{padding:72px 24px;}
+.container{max-width:800px;margin:0 auto;}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:20px;}
+h2 em{color:var(--gold);font-style:normal;}
+
+.problema{background:var(--navy-dark);}
+.problema-text{font-size:17px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:20px;}
+.problema-text strong{color:var(--white);}
+.erros-list{display:flex;flex-direction:column;gap:10px;margin:28px 0;}
+.erro-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(155,45,45,0.08);border:1px solid rgba(155,45,45,0.2);border-radius:10px;}
+.erro-x{width:20px;height:20px;flex-shrink:0;margin-top:2px;background:rgba(155,45,45,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#E87070;line-height:1;}
+.erro-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;}
+.erro-text strong{color:var(--white);}
+
+.solucao{background:var(--navy-mid);}
+.solucao-intro{font-size:16px;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:20px;}
+
+.conteudo{background:var(--navy-dark);}
+.capitulos{display:flex;flex-direction:column;gap:10px;margin-top:28px;}
+.cap-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;transition:border-color 0.2s;}
+.cap-item:hover{border-color:rgba(201,168,76,0.2);}
+.cap-num{min-width:32px;height:32px;border-radius:6px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;flex-shrink:0;}
+.cap-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.cap-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+
+.diferenciais{background:var(--navy-mid);}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.diff-card{padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;}
+.diff-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.diff-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.diff-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-bottom:12px;}
+
+.oj394{background:var(--navy-dark);border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);}
+.oj394-box{padding:36px 40px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:14px;}
+.oj394-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.oj394-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.3;}
+.oj394-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.8;}
+.oj394-text strong{color:var(--white);}
+
+.paraquem{background:var(--navy-mid);}
+.publicos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:28px;}
+.publico-card{padding:22px 18px;text-align:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;}
+.publico-icon{font-size:28px;margin-bottom:10px;}
+.publico-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.publico-text{font-size:12px;color:var(--muted);line-height:1.6;}
+
+.autor{background:var(--navy-dark);}
+.autor-box{display:flex;gap:28px;align-items:flex-start;padding:32px 36px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;}
+.autor-avatar{width:72px;height:72px;border-radius:50%;flex-shrink:0;background:rgba(201,168,76,0.12);border:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);}
+.autor-name{font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.autor-role{font-size:12px;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;}
+.autor-bio{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75;}
+
+.cta-final{background:var(--navy-mid);padding:80px 24px;text-align:center;}
+.cta-final h2{margin-bottom:16px;}
+.cta-final-sub{font-size:16px;color:var(--muted);max-width:500px;margin:0 auto 36px;line-height:1.7;}
+.price-main{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--gold);}
+.price-period{font-size:14px;color:var(--muted);margin-bottom:28px;}
+.garantia{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:14px 24px;background:rgba(45,122,79,0.1);border:1px solid rgba(45,122,79,0.25);border-radius:10px;font-size:13px;color:rgba(255,255,255,0.7);}
+.check{color:#5DCB8A;font-weight:700;}
+
+.faq{background:var(--navy-dark);}
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:28px;}
+.faq-item{border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;}
+.faq-q{padding:18px 20px;font-size:14px;font-weight:600;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.03);transition:background 0.15s;}
+.faq-q:hover{background:rgba(255,255,255,0.05);}
+.arrow{font-size:20px;color:var(--gold);transition:transform 0.25s;line-height:1;font-weight:300;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.75;padding:0 20px;background:rgba(255,255,255,0.02);}
+.faq-a.open{max-height:300px;padding:16px 20px;}
+
+footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,0.06);padding:28px 24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2);letter-spacing:0.06em;}
+
+@media(max-width:640px){
+  .diff-grid,.publicos{grid-template-columns:1fr;}
+  .autor-box{flex-direction:column;}
+  .oj394-box{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="brand-bar">
+    <svg width="48" height="48" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="500" height="500" rx="40" fill="#1C2E4A"/><g transform="translate(155, 60) scale(2.3)"><circle cx="40" cy="40" r="38" fill="none" stroke="#C09000" stroke-width="1.5" opacity="0.5"/><circle cx="40" cy="40" r="32" fill="#C09000" opacity="0.10"/><rect x="14" y="62" width="52" height="4" rx="1" fill="#C09000" opacity="0.9"/><rect x="14" y="18" width="52" height="4" rx="1" fill="#C09000" opacity="0.9"/><rect x="14" y="22" width="52" height="2" rx="0.5" fill="#C09000" opacity="0.5"/><rect x="18" y="24" width="9" height="38" rx="2" fill="#C09000" opacity="0.85"/><rect x="32" y="24" width="9" height="38" rx="2" fill="#C09000" opacity="0.85"/><rect x="53" y="24" width="9" height="38" rx="2" fill="#C09000" opacity="0.85"/></g><line x1="60" y1="368" x2="440" y2="368" stroke="#C09000" stroke-width="1.5" opacity="0.5"/><text x="250" y="408" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#F5F0C8" text-anchor="middle" letter-spacing="1">VERBAS &amp; DIREITOS</text><text x="250" y="448" font-family="Georgia, serif" font-size="24" font-weight="400" fill="#8BAED4" text-anchor="middle" letter-spacing="6">NA PRÁTICA</text></svg>
+    <div class="brand-name">Verbas &amp; Direitos na Prática</div>
+  </div>
+  <div class="hero-eyebrow">Série Vol. 1 — Lançamento</div>
+  <h1>A rescisão que parece certa<br>quase sempre está <em>errada</em></h1>
+  <p class="hero-sub">O Guia Prático de Verbas Rescisórias entrega o método completo para encontrar, calcular e cobrar as diferenças que ninguém vê — com fundamento jurídico sólido e 10 casos práticos resolvidos.</p>
+  <div class="hero-cta-wrap">
+    <div class="price-note">por apenas <strong>R$ 24,99</strong></div>
+    <a href="https://pay.hotmart.com/T105197841L" class="btn-primary">Quero o Guia Agora →</a>
+    <a href="#conteudo" class="btn-secondary">Ver o que está incluído</a>
+  </div>
+</section>
+
+<section class="problema">
+  <div class="container">
+    <div class="section-label">O problema</div>
+    <h2>Por que a maioria das rescisões está <em>errada</em>?</h2>
+    <p class="problema-text">A maioria das empresas calcula as verbas rescisórias usando <strong>apenas o salário fixo</strong>. Horas extras habituais, comissões, adicionais noturnos — tudo ignorado. O resultado aparece no TRCT como um número qualquer. O trabalhador assina. A diferença some.</p>
+    <p class="problema-text">Não é exceção. <strong>É a regra.</strong> E o advogado que não sabe onde procurar não encontra.</p>
+    <div class="erros-list">
+      <div class="erro-item">
+        <div class="erro-x">×</div>
+        <div class="erro-text"><strong>Horas extras habituais excluídas</strong> da base de cálculo de aviso prévio, 13º e férias</div>
+      </div>
+      <div class="erro-item">
+        <div class="erro-x">×</div>
+        <div class="erro-text"><strong>Comissões e adicionais ignorados</strong> — tratados como eventuais quando são habituais</div>
+      </div>
+      <div class="erro-item">
+        <div class="erro-x">×</div>
+        <div class="erro-text"><strong>OJ 394 TST não aplicada</strong> — o super reflexo do DSR em rescisões após 20/03/2023</div>
+      </div>
+      <div class="erro-item">
+        <div class="erro-x">×</div>
+        <div class="erro-text"><strong>Diferenças de R$ 10.000, R$ 20.000</strong> passam despercebidas — em contratos longos, é a regra, não a exceção</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solucao">
+  <div class="container">
+    <div class="section-label">A solução</div>
+    <h2>Um método para encontrar o erro <em>antes</em> de protocolar</h2>
+    <p class="solucao-intro">O Guia Prático de Verbas Rescisórias não é mais um resumo de CLT. É um método de análise — do levantamento dos documentos à quantificação das diferenças verba a verba — testado em casos reais, com fundamento na jurisprudência mais recente do TST.</p>
+    <p class="solucao-intro">Com ele, qualquer rescisão vira um processo previsível. Você sabe o que procurar, onde procurar e como calcular. Sem depender de memória. Sem deixar verba de fora.</p>
+  </div>
+</section>
+
+<section class="conteudo" id="conteudo">
+  <div class="container">
+    <div class="section-label">O que está incluído</div>
+    <h2>Tudo que você vai <em>aprender e aplicar</em></h2>
+    <div class="capitulos">
+      <div class="cap-item">
+        <div class="cap-num">01</div>
+        <div>
+          <div class="cap-title">Salário vs. Remuneração — a distinção que muda tudo</div>
+          <div class="cap-desc">Por que calcular sobre o salário-base é o erro mais comum e mais caro. O conceito correto de remuneração e o que obrigatoriamente entra na base de cálculo.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">02</div>
+        <div>
+          <div class="cap-title">O que integra e o que não integra a rescisão</div>
+          <div class="cap-desc">Tabela completa com fundamento legal para cada parcela — horas extras, comissões, adicionais, gorjetas, PLR, ajudas de custo. Critério da habitualidade com base no TST.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">03</div>
+        <div>
+          <div class="cap-title">Como calcular as médias — fórmulas e exemplos numéricos</div>
+          <div class="cap-desc">Média duodecimal de horas extras, comissões e parcelas variáveis. Exemplos com números reais, passo a passo. Inclui cálculo do impacto da OJ 394 TST nas verbas.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">04</div>
+        <div>
+          <div class="cap-title">Engenharia reversa do TRCT</div>
+          <div class="cap-desc">Como descobrir qual base de cálculo a empresa usou — e comparar com a remuneração correta. O método de "trás para frente" que revela o erro sem precisar de planilha.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">05</div>
+        <div>
+          <div class="cap-title">Verba a verba — conferência completa do TRCT</div>
+          <div class="cap-desc">Aviso prévio proporcional, 13º, férias + 1/3, FGTS, multa 40%, saldo de salário. Base correta de cada uma, erro mais comum de cada uma, diferença a calcular.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">06</div>
+        <div>
+          <div class="cap-title">10 casos práticos resolvidos</div>
+          <div class="cap-desc">Casos com diferentes perfis — horas extras habituais, comissões variáveis, jornada noturna, acordo mútuo. Cálculo completo em cada caso, do levantamento à quantificação da diferença.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">07</div>
+        <div>
+          <div class="cap-title">14 julgados do TST comentados</div>
+          <div class="cap-desc">OJ 394, Súmula 60, Súmula 264 e os principais julgados do SDI-1 sobre remuneração variável. Comentário prático de cada um: o que muda e como aplicar.</div>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">08</div>
+        <div>
+          <div class="cap-title">Modelos de petição prontos</div>
+          <div class="cap-desc">Reclamação trabalhista por diferenças rescisórias, incluindo modelo específico para o super reflexo do DSR (OJ 394 TST). Editável para cada caso.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oj394">
+  <div class="container">
+    <div class="oj394-box">
+      <div class="oj394-label">Destaque — OJ 394 TST</div>
+      <div class="oj394-title">O TST mudou a regra em 2023 — e a maioria dos advogados ainda não aplicou</div>
+      <p class="oj394-text">A nova redação da OJ 394 (vigência a partir de 20/03/2023) determinou que o <strong>DSR majorado pelas horas extras habituais integra a remuneração</strong> e repercute em todas as verbas rescisórias — aviso prévio, 13º proporcional, férias e FGTS.</p>
+      <p class="oj394-text" style="margin-top:12px;">O guia traz o cálculo completo com exemplos numéricos — e os modelos de petição já incorporam esse fundamento.</p>
+    </div>
+  </div>
+</section>
+
+<section class="diferenciais">
+  <div class="container">
+    <div class="section-label">Por que este guia</div>
+    <h2>Feito para quem precisa <em>aplicar agora</em></h2>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-dot"></div>
+        <div class="diff-title">Jurisprudência atualizada</div>
+        <div class="diff-text">Incorpora integralmente a OJ 394 TST (2023), Súmula 60, Súmula 264 e os principais julgados do SDI-1 sobre remuneração variável.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-dot"></div>
+        <div class="diff-title">Exemplos numéricos reais</div>
+        <div class="diff-text">Cada conceito vem acompanhado de um cálculo com números reais. Você não lê teoria — você aprende fazendo.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-dot"></div>
+        <div class="diff-title">Método em 5 etapas</div>
+        <div class="diff-text">Do levantamento de documentos à quantificação final, seguindo um roteiro aplicável em qualquer rescisão.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-dot"></div>
+        <div class="diff-title">Modelos prontos para usar</div>
+        <div class="diff-text">Peças trabalhistas editáveis com fundamento e pedidos completos — incluindo modelo específico para diferenças rescisórias com OJ 394.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paraquem">
+  <div class="container">
+    <div class="section-label">Para quem é</div>
+    <h2>Para quem precisa de <em>resultado prático</em></h2>
+    <div class="publicos">
+      <div class="publico-card">
+        <div class="publico-icon">🎓</div>
+        <div class="publico-title">Estagiários</div>
+        <div class="publico-text">Aprenda o método correto desde o início. Nunca mais calcule rescisão só sobre o salário-base.</div>
+      </div>
+      <div class="publico-card">
+        <div class="publico-icon">⚖️</div>
+        <div class="publico-title">Advogados trabalhistas</div>
+        <div class="publico-text">Metodologia completa para encontrar diferenças rescisórias — e peças prontas para cobrar.</div>
+      </div>
+      <div class="publico-card">
+        <div class="publico-icon">📚</div>
+        <div class="publico-title">Concursandos OAB</div>
+        <div class="publico-text">Os temas mais cobrados em provas com fundamento e exemplos práticos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="autor">
+  <div class="container">
+    <div class="section-label">Quem escreveu</div>
+    <div class="autor-box">
+      <div class="autor-avatar">FP</div>
+      <div>
+        <div class="autor-name">Francisco J. Pires</div>
+        <div class="autor-role">Série Verbas &amp; Direitos na Prática</div>
+        <p class="autor-bio">Profissional com mais de 10 anos de atuação em Direito do Trabalho, com experiência em demandas de alta complexidade envolvendo cálculos rescisórios e elaboração de peças trabalhistas. A Série Verbas &amp; Direitos na Prática nasceu da percepção de que o problema não era falta de conhecimento jurídico — era falta de método prático para transformar esse conhecimento em ação rápida e segura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="section-label" style="text-align:center;">Oferta de lançamento</div>
+    <h2>Comece a encontrar<br>as diferenças <em>hoje</em></h2>
+    <p class="cta-final-sub">Acesso imediato após a compra. Leitura em qualquer dispositivo. Garantia de 7 dias — seu dinheiro de volta sem perguntas.</p>
+    <div class="price-main">R$ 24,99</div>
+    <div class="price-period">acesso completo e permanente</div>
+    <a href="https://pay.hotmart.com/T105197841L" class="btn-primary">Quero o Guia Agora →</a>
+    <div>
+      <div class="garantia">
+        <span class="check">✓</span> Garantia de 7 dias — reembolso integral sem perguntas
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Dúvidas</div>
+    <h2>Perguntas <em>frequentes</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Como acesso o guia após a compra? <span class="arrow">+</span></div>
+        <div class="faq-a">Imediatamente após o pagamento você recebe um e-mail com o link de acesso pela plataforma Hotmart. O conteúdo pode ser lido em computador, celular ou tablet — online ou baixado para leitura offline.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">O guia já incorpora a nova OJ 394 TST? <span class="arrow">+</span></div>
+        <div class="faq-a">Sim. A OJ 394 (nova redação desde 20/03/2023) está integralmente incorporada — com explicação do impacto, cálculo com exemplos numéricos e modelo de petição específico para diferenças rescisórias com o super reflexo do DSR.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Qual a diferença para o Kit Prático (R$ 97)? <span class="arrow">+</span></div>
+        <div class="faq-a">O Guia é o método em texto — conceitos, casos práticos, julgados comentados e modelos de petição. O Kit Prático é o conjunto de 12 ferramentas digitais — calculadoras, simuladores e planilhas para uso no dia a dia. Os dois se complementam: o guia ensina o método, o kit executa o cálculo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Como funciona a garantia de 7 dias? <span class="arrow">+</span></div>
+        <div class="faq-a">Se por qualquer motivo o guia não atender às suas expectativas, basta solicitar o reembolso dentro de 7 dias após a compra — direto pela plataforma Hotmart. O valor é devolvido integralmente, sem perguntas.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Serve para concursos e para o Exame da OAB? <span class="arrow">+</span></div>
+        <div class="faq-a">Sim. Os temas abordados — cálculo de médias, critério da habitualidade, OJ 394, Súmula 60 e 264, aviso prévio proporcional — são recorrentes em provas da OAB e concursos trabalhistas. O guia apresenta cada tema com fundamento legal e jurisprudencial sólido.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  @verbasedireitos · Série Verbas &amp; Direitos na Prática · © 2026 Francisco J. Pires · Todos os direitos reservados
+</footer>
+
+<script>
+function toggleFaq(el){
+  const a=el.nextElementSibling;
+  const isOpen=a.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(x=>{x.classList.remove('open');x.previousElementSibling.querySelector('.arrow').style.transform='rotate(0deg)';});
+  if(!isOpen){a.classList.add('open');el.querySelector('.arrow').style.transform='rotate(45deg)';}
+}
+</script>
+</body>
+</html>
